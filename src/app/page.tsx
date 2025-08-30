@@ -50,16 +50,17 @@ export default function Home() {
     };
 
     return (
-        <div className="">
+        <div>
             <GradientDots duration={20} />
-            <main className="relative h-screen bg-black/60 flex flex-col justify-center">
-                <div className="container mx-auto ">
+            <main className="relative h-screen bg-[#0C0F35]/40 flex flex-col justify-center">
+                <div className="absolute inset-0 bg-[#0C0F35]/70"></div>
+                <div className="container mx-auto  z-50">
                     {/* Hero Section */}
                     <div className="text-center mb-16">
                         <div className="flex justify-center mb-8">
                             <Logo />
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+                        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0190e1] to-blue-400">
                             The Resident Creator
                         </h1>
                         <p className="text-xl md:text-2xl font-medium text-gray-300 mb-4 max-w-3xl mx-auto">
@@ -70,7 +71,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="relative flex w-[500px] mx-auto  flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+                    <div className="relative flex w-[500px] mx-auto  flex-col items-center justify-center overflow-hidden rounded-lg border bg-[#0C0F35] md:shadow-xl">
                         {/* Waitlist Form Section */}
                         <div className=" p-8 rounded-2xl  w-full">
                             <h2 className="text-2xl font-bold mb-2 text-center">
@@ -128,7 +129,7 @@ export default function Home() {
 
                                 <Button
                                     type="submit"
-                                    className="w-full h-12 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold text-lg"
+                                    className="w-full h-12 rounded-lg bg-gradient-to-r from-[#0190e1] to-blue-600 hover:from-[#0190e1] hover:to-blue-700 text-white font-bold text-lg"
                                 >
                                     Join Waitlist
                                 </Button>

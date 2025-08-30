@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Logo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
     return (
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 text-left">
             <Image
                 src={'/svgs/logo.svg'}
                 width={100}
