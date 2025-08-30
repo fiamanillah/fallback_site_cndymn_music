@@ -52,36 +52,36 @@ export default function Home() {
     return (
         <div>
             <GradientDots duration={20} />
-            <main className="relative h-screen bg-[#0C0F35]/40 flex flex-col justify-center">
+            <main className="relative min-h-screen bg-[#0C0F35]/40 flex flex-col justify-center py-10 px-4">
                 <div className="absolute inset-0 bg-[#0C0F35]/70"></div>
-                <div className="container mx-auto  z-50">
+                <div className="container mx-auto z-50 px-4">
                     {/* Hero Section */}
-                    <div className="text-center mb-16">
-                        <div className="flex justify-center mb-8">
+                    <div className="text-center mb-8 md:mb-16">
+                        <div className="flex justify-center mb-6 md:mb-8">
                             <Logo />
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0190e1] to-blue-400">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0190e1] to-blue-400">
                             The Resident Creator
                         </h1>
-                        <p className="text-xl md:text-2xl font-medium text-gray-300 mb-4 max-w-3xl mx-auto">
+                        <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-300 mb-3 md:mb-4 max-w-3xl mx-auto">
                             An Official Certification Program for the Next Generation of Creators
                         </p>
-                        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
                             Built with brands. Designed for creators. Backed by research.
                         </p>
                     </div>
 
-                    <div className="relative flex w-[500px] mx-auto  flex-col items-center justify-center overflow-hidden rounded-lg border bg-[#0C0F35] md:shadow-xl">
+                    <div className="relative flex w-full max-w-[500px] mx-auto flex-col items-center justify-center overflow-hidden rounded-lg border bg-[#0C0F35] md:shadow-xl">
                         {/* Waitlist Form Section */}
-                        <div className=" p-8 rounded-2xl  w-full">
-                            <h2 className="text-2xl font-bold mb-2 text-center">
+                        <div className="p-6 md:p-8 rounded-2xl w-full">
+                            <h2 className="text-xl md:text-2xl font-bold mb-2 text-center">
                                 Join The Waitlist
                             </h2>
-                            <p className="text-gray-400 text-center mb-6">
+                            <p className="text-gray-400 text-center mb-4 md:mb-6 text-sm md:text-base">
                                 Be the first to know when we launch
                             </p>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                                 <div>
                                     <Input
                                         name="name"
@@ -101,7 +101,7 @@ export default function Home() {
                                         <SelectTrigger className="!h-12 w-full">
                                             <SelectValue placeholder="Select Country" />
                                         </SelectTrigger>
-                                        <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                        <SelectContent className="bg-gray-800 border-gray-700 text-white max-h-60 overflow-y-auto">
                                             {countries.map((country: string) => (
                                                 <SelectItem
                                                     key={country}
@@ -129,7 +129,7 @@ export default function Home() {
 
                                 <Button
                                     type="submit"
-                                    className="w-full h-12 rounded-lg bg-gradient-to-r from-[#0190e1] to-blue-600 hover:from-[#0190e1] hover:to-blue-700 text-white font-bold text-lg"
+                                    className="w-full h-12 rounded-lg bg-gradient-to-r from-[#0190e1] to-blue-600 hover:from-[#0190e1] hover:to-blue-700 text-white font-bold text-base md:text-lg"
                                 >
                                     Join Waitlist
                                 </Button>
@@ -137,7 +137,7 @@ export default function Home() {
 
                             {message && (
                                 <div
-                                    className={`mt-6 p-3 rounded-lg text-center ${
+                                    className={`mt-4 md:mt-6 p-3 rounded-lg text-center text-sm md:text-base ${
                                         message.includes('✅')
                                             ? 'bg-green-900/30 text-green-300'
                                             : 'bg-red-900/30 text-red-300'
@@ -150,7 +150,7 @@ export default function Home() {
 
                         <BorderBeam size={250} duration={12} delay={9} />
                     </div>
-                    <p className="text-center text-gray-500 mt-8 text-sm">
+                    <p className="text-center text-gray-500 mt-6 md:mt-8 text-xs md:text-sm">
                         © {new Date().getFullYear()} The Resident Creator. All rights reserved.
                     </p>
                 </div>
