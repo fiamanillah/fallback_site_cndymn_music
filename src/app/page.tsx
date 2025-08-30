@@ -12,11 +12,14 @@ import {
 } from '@/components/ui/select';
 import { getNames } from 'country-list';
 import Logo from '@/components/logo/Logo';
+import { GradientDots } from '@/components/ui/gradient-dots';
+import { BorderBeam } from '@/components/ui/border-beam';
 
 export default function Home() {
     const [form, setForm] = useState({ name: '', country: '', email: '' });
     const [message, setMessage] = useState('');
     const countries = getNames();
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
@@ -30,7 +33,7 @@ export default function Home() {
                 body: JSON.stringify(form),
             });
 
-            const data = await res.json().catch(() => null); // prevent parse crash
+            const data = await res.json().catch(() => null);
 
             if (!res.ok) {
                 setMessage('❌ ' + (data?.error || 'Something went wrong'));
@@ -47,52 +50,110 @@ export default function Home() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center min-h-screen">
-            <div className="w-full flex flex-col items-center">
-                <Logo />
-                <h1 className="text-4xl font-bold m-2">Certification Program Launches Soon..</h1>
-                <p className="mb-6 text-gray-600">Join The Waitlist.</p>
-                <form
-                    onSubmit={handleSubmit}
-                    className="bg-white p-6 rounded-2xl  w-full max-w-sm space-y-4"
-                >
-                    <Input
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="Name"
-                    />
+        <div className="">
+            <GradientDots duration={20} />
+            <main className="relative h-screen bg-black/60 flex flex-col justify-center">
+                <div className="container mx-auto ">
+                    {/* Hero Section */}
+                    <div className="text-center mb-16">
+                        <div className="flex justify-center mb-8">
+                            <Logo />
+                        </div>
+                        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+                            The Resident Creator
+                        </h1>
+                        <p className="text-xl md:text-2xl font-medium text-gray-300 mb-4 max-w-3xl mx-auto">
+                            An Official Certification Program for the Next Generation of Creators
+                        </p>
+                        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                            Built with brands. Designed for creators. Backed by research.
+                        </p>
+                    </div>
 
-                    <Select
-                        value={form.country}
-                        onValueChange={val => setForm({ ...form, country: val })}
-                    >
-                        <SelectTrigger className="!w-full">
-                            <SelectValue placeholder="Select Country" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {countries.map((country: string) => (
-                                <SelectItem key={country} value={country}>
-                                    {country}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
+                    <div className="relative flex w-[500px] mx-auto  flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+                        {/* Waitlist Form Section */}
+                        <div className=" p-8 rounded-2xl  w-full">
+                            <h2 className="text-2xl font-bold mb-2 text-center">
+                                Join The Waitlist
+                            </h2>
+                            <p className="text-gray-400 text-center mb-6">
+                                Be the first to know when we launch
+                            </p>
 
-                    <Input
-                        name="email"
-                        type="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                    />
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div>
+                                    <Input
+                                        name="name"
+                                        value={form.name}
+                                        onChange={handleChange}
+                                        placeholder="Full Name"
+                                        className="bg-gray-800/50 border-gray-700 text-white h-12 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                        required
+                                    />
+                                </div>
 
-                    <Button type="submit" className="w-full">
-                        Join Waitlist
-                    </Button>
-                </form>
-            </div>
-            {message && <p className="mt-4">{message}</p>}
-        </main>
+                                <div>
+                                    <Select
+                                        value={form.country}
+                                        onValueChange={val => setForm({ ...form, country: val })}
+                                    >
+                                        <SelectTrigger className="!h-12 w-full">
+                                            <SelectValue placeholder="Select Country" />
+                                        </SelectTrigger>
+                                        <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                            {countries.map((country: string) => (
+                                                <SelectItem
+                                                    key={country}
+                                                    value={country}
+                                                    className="focus:bg-gray-700"
+                                                >
+                                                    {country}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+
+                                <div>
+                                    <Input
+                                        name="email"
+                                        type="email"
+                                        value={form.email}
+                                        onChange={handleChange}
+                                        placeholder="Email Address"
+                                        className="bg-gray-800/50 border-gray-700 text-white h-12 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                        required
+                                    />
+                                </div>
+
+                                <Button
+                                    type="submit"
+                                    className="w-full h-12 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold text-lg"
+                                >
+                                    Join Waitlist
+                                </Button>
+                            </form>
+
+                            {message && (
+                                <div
+                                    className={`mt-6 p-3 rounded-lg text-center ${
+                                        message.includes('✅')
+                                            ? 'bg-green-900/30 text-green-300'
+                                            : 'bg-red-900/30 text-red-300'
+                                    }`}
+                                >
+                                    {message}
+                                </div>
+                            )}
+                        </div>
+
+                        <BorderBeam size={250} duration={12} delay={9} />
+                    </div>
+                    <p className="text-center text-gray-500 mt-8 text-sm">
+                        © {new Date().getFullYear()} The Resident Creator. All rights reserved.
+                    </p>
+                </div>
+            </main>
+        </div>
     );
 }
