@@ -33,7 +33,6 @@ export async function POST(req: Request) {
         }
 
         // Basic email validation
-        // You can add more complex email validation if needed
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             console.log('Validation failed: invalid email format');
