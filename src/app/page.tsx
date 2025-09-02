@@ -36,16 +36,16 @@ export default function Home() {
             const data = await res.json().catch(() => null);
 
             if (!res.ok) {
-                setMessage('❌ ' + (data?.error || 'Something went wrong'));
+                setMessage(' Error: ' + (data?.error || 'Something went wrong'));
                 return;
             }
 
             if (data?.success) {
-                setMessage('✅ Thanks for joining the waitlist!');
+                setMessage(' Thanks for joining the waitlist!');
                 setForm({ name: '', country: '', email: '' });
             }
         } catch (err) {
-            setMessage('❌ Network error: ' + (err as Error).message);
+            setMessage(' Network error: ' + (err as Error).message);
         }
     };
 
@@ -61,7 +61,7 @@ export default function Home() {
                             <Logo />
                         </div>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0190e1] to-blue-400">
-                            The Resident Creator
+                            The Resident Creator™
                         </h1>
                         <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-300 mb-3 md:mb-4 max-w-3xl mx-auto">
                             An Official Certification Program for the Next Generation of Creators
@@ -138,7 +138,7 @@ export default function Home() {
                             {message && (
                                 <div
                                     className={`mt-4 md:mt-6 p-3 rounded-lg text-center text-sm md:text-base ${
-                                        message.includes('✅')
+                                        message.includes('success')
                                             ? 'bg-green-900/30 text-green-300'
                                             : 'bg-red-900/30 text-red-300'
                                     }`}
