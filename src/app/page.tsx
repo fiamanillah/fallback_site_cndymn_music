@@ -41,7 +41,7 @@ export default function Home() {
             }
 
             if (data?.success) {
-                setMessage(' Thanks for joining the waitlist!');
+                setMessage('Welcome to the next wave of creators. You are in.');
                 setForm({ name: '', country: '', email: '' });
             }
         } catch (err) {
@@ -140,7 +140,7 @@ export default function Home() {
                                     className={`mt-4 md:mt-6 p-3 rounded-lg text-center text-sm md:text-base ${
                                         message.includes('success')
                                             ? 'bg-green-900/30 text-green-300'
-                                            : 'bg-red-900/30 text-red-300'
+                                            : 'bg-green-900/30 text-green-300'
                                     }`}
                                 >
                                     {message}
