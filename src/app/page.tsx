@@ -271,7 +271,7 @@ export default function Home() {
                                 icon: <BookOpen className="w-10 h-10" />,
                                 title: 'Workbooks',
                                 description:
-                                    'Practical exercises to apply instantly and build your full Creator Portfolic',
+                                    'Practical exercises to apply instantly and build your full Creator Portfolio',
                                 color: 'from-[#017bde] to-[#0056b3]',
                             },
                             {
