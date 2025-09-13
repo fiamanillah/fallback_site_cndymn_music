@@ -251,7 +251,7 @@ export default function Home() {
                             Program Contents
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-                            What&apos;s inside The Resident Creator™ Program
+                            What&apos;s Inside The Resident Creator™ Program
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                             Everything you need to become the Certified Creator brands are actively
@@ -318,8 +318,8 @@ export default function Home() {
                             Research & Credibility
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-12">
-                            Backed by brands.
-                            <span className="block mt-2">Designed for creators.</span>
+                            Backed by Brands.
+                            <span className="block mt-2">Designed for Creators.</span>
                         </h2>
                         <div className="bg-gradient-to-br from-[#017bde]/5 to-[#017bde]/10 dark:from-[#017bde]/10 dark:to-[#017bde]/20 p-12 rounded-3xl border border-[#017bde]/20 dark:border-[#017bde]/30">
                             <div className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 space-y-8 max-w-4xl mx-auto leading-relaxed">
@@ -352,9 +352,9 @@ export default function Home() {
                             Limited Spots
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-8">
-                            Be among the first
+                            Be Among the First
                             <span className="text-[#017bde] dark:text-blue-400"> 500 Creators</span>
-                            <span className="block mt-2">worldwide.</span>
+                            <span className="block mt-2">Worldwide.</span>
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
                             Early members get exclusive benefits:
@@ -419,13 +419,13 @@ export default function Home() {
                     <h2 className="text-4xl lg:text-6xl font-bold mb-8">
                         The new Creator Standard
                         <span className="block mt-2 bg-gradient-to-r from-[#017bde] to-[#0056b3] bg-clip-text text-transparent">
-                            starts here.
+                            Starts Here.
                         </span>
                     </h2>
                     <div className="text-xl lg:text-2xl text-gray-300 space-y-6 mb-12 max-w-3xl mx-auto leading-relaxed">
                         <p>Don&apos;t adapt to outdated trends.</p>
                         <p className="text-2xl font-semibold text-white">
-                            Become the Certified Creator brands are searching for.
+                            Become the Certified Creator Brands Are Searching For.
                         </p>
                     </div>
 
