@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/select';
 import { getNames } from 'country-list';
 import Logo from '@/components/logo/Logo';
-import { GradientDots } from '@/components/ui/gradient-dots';
 import { BorderBeam } from '@/components/ui/border-beam';
 import {
     CheckCircle,
@@ -31,6 +30,7 @@ import {
 } from 'lucide-react';
 import { Spotlight } from '@/components/ui/spotlight';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function Home() {
     const [form, setForm] = useState({ name: '', country: '', email: '' });
@@ -79,7 +79,7 @@ export default function Home() {
     return (
         <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950 min-h-screen">
             {/* Hero Section */}
-            <section className="relative flex h-[calc(100dvh-80px)] w-full overflow-hidden antialiased md:items-center md:justify-center">
+            <section className="relative flex min-h-[calc(100svh-80px)] w-full overflow-hidden antialiased md:items-center md:justify-center">
                 {/* Background grid */}
                 <div
                     className={cn(
@@ -92,60 +92,68 @@ export default function Home() {
                 <Spotlight className="top-0 left-0 md:top-0 md:left-1/4" fill="white" />
 
                 {/* Hero Content */}
-                <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0 text-center">
-                    <div className="flex justify-center mb-8">
-                        <div className="p-4 rounded-2xl bg-white/80 dark:bg-gray-800/80 shadow-xl backdrop-blur-sm">
-                            <Logo />
-                        </div>
+                <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-16 md:pt-0 text-center">
+                    {/* Logo */}
+                    <div className="flex justify-center mb-6">
+                        <Image
+                            src={'/svgs/Group.svg'}
+                            width={80}
+                            height={80}
+                            alt="The Resident Creator"
+                            className="w-16 h-16 sm:w-20 sm:h-20"
+                        />
                     </div>
-                    <div className="mb-6">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#017bde]/10 dark:bg-[#017bde]/30 rounded-full text-[#017bde] dark:text-blue-300 text-sm font-medium mb-6">
-                            <Award className="w-4 h-4" />
-                            Official Certification Program
-                        </div>
-                    </div>
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-gray-900 dark:text-white mb-8 leading-none">
+
+                    {/* Title */}
+                    <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
                         The Resident Creator™
-                        <span className="block mt-4 bg-gradient-to-r from-[#017bde] to-[#0056b3] bg-clip-text text-transparent">
-                            Certification
-                        </span>
                     </h1>
-                    <p className="text-xl lg:text-2xl xl:text-3xl text-gray-600 dark:text-gray-300 mb-10 max-w-5xl mx-auto leading-relaxed font-light">
-                        The first official certification program <strong>built with brands</strong>,
-                        <strong>designed for creators</strong>, and
-                        <strong>backed by research</strong>.
+
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#017bde]/10 dark:bg-[#017bde]/30 rounded-full text-[#017bde] dark:text-blue-300 text-xs sm:text-sm font-medium mb-6">
+                        <Award className="w-4 h-4" />
+                        Official Certification Program
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-md sm:max-w-3xl mx-auto leading-relaxed font-light">
+                        The Official Certification Program built with brands, designed for Creators,
+                        and backed by Research.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+
+                    {/* CTA */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
                         <Button
                             onClick={scrollToForm}
                             size="lg"
-                            className="bg-gradient-to-r from-[#017bde] to-[#0056b3] hover:from-[#0056b3] hover:to-[#013d7a] text-white font-bold text-lg px-10 py-4 h-auto shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                            className="w-full sm:w-auto bg-gradient-to-r from-[#017bde] to-[#0056b3] hover:from-[#0056b3] hover:to-[#013d7a] text-white font-bold text-base sm:text-lg px-6 sm:px-10 py-3 sm:py-4 h-auto shadow-xl hover:shadow-2xl transition-all duration-300"
                         >
                             Join the Waitlist Today (Free)
-                            <ArrowRight className="ml-3 w-5 h-5" />
+                            <ArrowRight className="ml-2 sm:ml-3 w-4 sm:w-5 h-4 sm:h-5" />
                         </Button>
-                        <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
+                        <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
                             <Zap className="w-4 h-4 text-yellow-500" />
                             <span className="font-medium">Limited early spots available</span>
                         </div>
                     </div>
+
                     {/* Trust Indicators */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-16">
-                        <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-lg">
-                            <Users className="w-6 h-6 text-[#017bde]" />
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-2xl sm:max-w-3xl mx-auto mt-12">
+                        <div className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-lg">
+                            <Users className="w-5 sm:w-6 h-5 sm:h-6 text-[#017bde]" />
+                            <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium">
                                 500+ Early Members
                             </span>
                         </div>
-                        <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-lg">
-                            <Shield className="w-6 h-6 text-[#017bde]" />
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">
+                        <div className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-lg">
+                            <Shield className="w-5 sm:w-6 h-5 sm:h-6 text-[#017bde]" />
+                            <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium">
                                 Research Backed
                             </span>
                         </div>
-                        <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-lg">
-                            <TrendingUp className="w-6 h-6 text-[#017bde]" />
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">
+                        <div className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-lg">
+                            <TrendingUp className="w-5 sm:w-6 h-5 sm:h-6 text-[#017bde]" />
+                            <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium">
                                 Brand Approved
                             </span>
                         </div>
@@ -164,17 +172,17 @@ export default function Home() {
                                 The Current Problem
                             </div>
                             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                                The influencer era is
+                                The Influencer era is
                                 <span className="text-[#017bde] dark:text-blue-400"> ending.</span>
                             </h2>
                             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <p>
-                                    Creators today fight for views, followers, and likes — but
-                                    brands don&apos;t care about noise anymore.
+                                    Creators today fight for views, followers, and likes but brands
+                                    don&apos;t care about noise anymore.
                                 </p>
                                 <p>
-                                    They want creators who can embed inside their story, strategy,
-                                    and campaigns.
+                                    They want creators who can embed inside their Story, Strategy,
+                                    and Campaigns.
                                 </p>
                                 <div className="p-6 bg-gradient-to-r from-[#017bde]/10 to-[#017bde]/20 dark:from-[#017bde]/20 dark:to-[#017bde]/30 rounded-xl border-l-4 border-[#017bde]">
                                     <p className="text-[#017bde] dark:text-blue-300 font-semibold text-xl">
@@ -192,14 +200,14 @@ export default function Home() {
                                 Our Solution
                             </div>
                             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                                That&apos;s why we built
+                                That&apos;s why we built{' '}
                                 <span className="text-[#017bde] dark:text-blue-400">
                                     The Resident Creator™.
                                 </span>
                             </h2>
                             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                                TRC is not another &quot;how to get viral&quot; guide. It&apos;s an
-                                official certification program that:
+                                TRC is not another &quot;How to get viral&quot; guide. It&apos;s an
+                                Official Certification Program that:
                             </p>
 
                             <div className="space-y-4">
@@ -246,7 +254,7 @@ export default function Home() {
                             What&apos;s inside The Resident Creator™ Program
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                            Everything you need to become the certified creator brands are actively
+                            Everything you need to become the Certified Creator brands are actively
                             seeking
                         </p>
                     </div>
@@ -262,14 +270,15 @@ export default function Home() {
                             {
                                 icon: <BookOpen className="w-10 h-10" />,
                                 title: 'Workbooks',
-                                description: 'Practical exercises to apply instantly',
+                                description:
+                                    'Practical exercises to apply instantly and build your full Creator Portfolic',
                                 color: 'from-[#017bde] to-[#0056b3]',
                             },
                             {
                                 icon: <BarChart3 className="w-10 h-10" />,
                                 title: 'Case Studies',
                                 description:
-                                    'Real examples of creators who secured long-term deals',
+                                    'Real examples of Creators who secured long-term deals',
                                 color: 'from-[#017bde] to-[#0056b3]',
                             },
                             {
@@ -320,12 +329,12 @@ export default function Home() {
                                 </p>
                                 <p>
                                     The result is a program that bridges the gap between what
-                                    creators think brands want… and what brands actually invest in.
+                                    creators think brands want and what brands actually invest in.
                                 </p>
                                 <div className="p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg">
                                     <p className="text-2xl text-[#017bde] dark:text-blue-400 font-bold">
-                                        This isn&apos;t theory. It&apos;s research, fieldwork, and
-                                        industry insight — built into one streamlined program.
+                                        This isn&apos;t theory. It&apos;s Research, Fieldwork, and
+                                        Industry Insight built into one streamlined program.
                                     </p>
                                 </div>
                             </div>
@@ -344,7 +353,7 @@ export default function Home() {
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-8">
                             Be among the first
-                            <span className="text-[#017bde] dark:text-blue-400">500 creators</span>
+                            <span className="text-[#017bde] dark:text-blue-400"> 500 Creators</span>
                             <span className="block mt-2">worldwide.</span>
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
@@ -356,7 +365,7 @@ export default function Home() {
                         {[
                             {
                                 title: 'Priority Access',
-                                description: 'Priority access to the certification',
+                                description: 'Priority access to the Certification',
                                 icon: <Star className="w-8 h-8" />,
                                 color: 'from-[#017bde] to-[#0056b3]',
                             },
@@ -395,7 +404,7 @@ export default function Home() {
                         <Button
                             onClick={scrollToForm}
                             size="lg"
-                            className="bg-gradient-to-r from-[#017bde] to-[#0056b3] hover:from-[#0056b3] hover:to-[#013d7a] text-white font-bold text-xl px-12 py-6 h-auto shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                            className="bg-gradient-to-r from-[#017bde] to-[#0056b3] hover:from-[#0056b3] hover:to-[#013d7a] text-white font-bold text-xl px-12 py-6 h-auto shadow-xl hover:shadow-2xl transition-all duration-300 transform "
                         >
                             Reserve My Spot (Free)
                             <ArrowRight className="ml-3 w-6 h-6" />
@@ -408,7 +417,7 @@ export default function Home() {
             <section className="py-20 px-4 bg-gradient-to-tl from-blue-50 via-white to-purple-50 dark:from-blue-900/20 dark:via-gray-900 dark:to-purple-900/20">
                 <div className="container mx-auto max-w-5xl text-center">
                     <h2 className="text-4xl lg:text-6xl font-bold mb-8">
-                        The new creator standard
+                        The new Creator Standard
                         <span className="block mt-2 bg-gradient-to-r from-[#017bde] to-[#0056b3] bg-clip-text text-transparent">
                             starts here.
                         </span>
@@ -416,7 +425,7 @@ export default function Home() {
                     <div className="text-xl lg:text-2xl text-gray-300 space-y-6 mb-12 max-w-3xl mx-auto leading-relaxed">
                         <p>Don&apos;t adapt to outdated trends.</p>
                         <p className="text-2xl font-semibold text-white">
-                            Become the certified creator brands are searching for.
+                            Become the Certified Creator brands are searching for.
                         </p>
                     </div>
 
@@ -499,7 +508,7 @@ export default function Home() {
 
                                 <Button
                                     onClick={handleSubmit}
-                                    className="w-full h-12 bg-gradient-to-r from-[#017bde] to-[#0056b3] hover:from-[#0056b3] hover:to-[#013d7a] text-white font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl rounded-xl"
+                                    className="w-full h-12 bg-gradient-to-r from-[#017bde] to-[#0056b3] hover:from-[#0056b3] hover:to-[#013d7a] text-white font-bold text-xl transition-all duration-300 transform shadow-lg hover:shadow-xl rounded-xl"
                                 >
                                     Join the Waitlist Today
                                     <ArrowRight className="ml-3 w-6 h-6" />
