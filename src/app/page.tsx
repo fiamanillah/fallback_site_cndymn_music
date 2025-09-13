@@ -172,8 +172,8 @@ export default function Home() {
                                 The Current Problem
                             </div>
                             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                                The Influencer era is
-                                <span className="text-[#017bde] dark:text-blue-400"> ending.</span>
+                                The Influencer Era is
+                                <span className="text-[#017bde] dark:text-blue-400"> Ending.</span>
                             </h2>
                             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <p>
